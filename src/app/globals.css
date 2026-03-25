@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
 :root {
+  /* Core Colors - Friends change these hex codes */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+
+  --primary: #3b82f6;     /* Main Accent */
+  --secondary: #10b981;   /* Success/Secondary */
+  --muted: #64748b;       /* Grays/Subtle text */
+  --accent: #f1f5f9;      /* Card backgrounds */
+
+    --radius: 0.5rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  
+  --radius-custom: var(--radius);
+  
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular;
 }
 
+/* Dark Mode override */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #020617;
+    --foreground: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #1e293b;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Base Styles */
+@layer base {
+  * {
+    @apply border-muted/20;  
+  }
+}
+
+body{
+  @apply bg-background text-foreground antialiased selection:bg-primary/30;
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
