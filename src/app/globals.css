@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Core Colors - Friends change these hex codes */
   --background: #ffffff;
   --foreground: #0f172a;
 
-  --primary: #3b82f6;     /* Main Accent */
-  --secondary: #10b981;   /* Success/Secondary */
-  --muted: #64748b;       /* Grays/Subtle text */
-  --accent: #f1f5f9;      /* Card backgrounds */
-
-    --radius: 0.5rem;
+  --primary: #08b9d4;    
+  --secondary: #00000000;   
+  --muted: #64748b;       
+  --accent: #33decf;      
+  --gray: #575757;
+  --light-bg: #eaeaeb;
+  /* Default Mobile */
+    --radius: 45px;
 }
 
 @theme inline {
@@ -20,22 +21,46 @@
   --color-secondary: var(--secondary);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
-  
-  --radius-custom: var(--radius);
-  
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular;
+  --color-gray: var(--gray);
+  --color-light-bg: var(--light-bg);
+   --color-brand-cyan: var(--brand-cyan);
+
+  --font-big: var(--font-big-shoulders), ui-sans-serif, system-ui;
+  --font-inter: var(--font-inter), ui-monospace, SFMono-Regular;
 }
 
+
+@media (min-width: 640px) {
+  :root {
+    --radius: 60px; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --radius: 75px; /* Desktop */
+  }
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #1e293b;
+}
+
+
+
+
 /* Dark Mode override */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #020617;
     --foreground: #f8fafc;
     --muted: #94a3b8;
     --accent: #1e293b;
   }
-}
+} */
 
 /* Base Styles */
 @layer base {
@@ -47,4 +72,20 @@
 body{
   @apply bg-background text-foreground antialiased selection:bg-primary/30;
   font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+
+
+/* Navbar spinnng animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
 }

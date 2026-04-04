@@ -1,7 +1,10 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/sections/Hero";
 export default function Home() {
   return (
     <main>
-      <h1 className="text-amber-500">Portfolio Project</h1>
+      <Navbar/>
+      <Hero/>
     </main>
   );
 }

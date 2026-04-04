@@ -10,15 +10,16 @@ export const siteConfig = {
 
     // Navigation Links (Used in Header & Footer)
     navItems:[
-        {label: "Home", href: "/"},
+        {label: "Blogs", href: "/"},
         {label: "Projects", href: "#projects"},
-        {label: "Experience", href: "#experience"},
+        {label: "Home", href: "#experience"},
+        {label: "About", href: "#contact"},
         {label: "Contact", href: "#contact"},
     ],
 
     // Social Media LInks
     links: {
-        github: "https:github.com/adnanktech",
+        github: "https://github.com/adnanktech",
         twitter: "https://twitter.com/adnanktech",
         linkedin: "https://linkedin.com/adnanktech"
     },
